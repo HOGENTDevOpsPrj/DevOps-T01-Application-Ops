@@ -5,11 +5,31 @@ pipeline {
     stages {
         stage('Remove Containers') {
             steps {
-                echo 'Remove Containers'
-                sh "docker rm -f db"
-		sh "docker rm -f web"
-            }
-        }
+                script {
+                    echo 'Remove Containers'
+
+                    // Check if the 'db' container exists
+                    def dbContainerExists = sh(script: 'docker ps -a --format "{{.Names}}" | grep -wq "db"', returnStatus: true)
+
+                    // Remove the 'db' container if it exists
+                    if (dbContainerExists == 0) {
+                        sh "docker rm -f db"
+                        echo 'Container "db" removed'
+                    } else {
+                        echo 'Container "db" does not exist'
+                    }
+
+                    // Check if the 'web' container exists
+                    def webContainerExists = sh(script: 'docker ps -a --format "{{.Names}}" | grep -wq "web"', returnStatus: true)
+
+                    // Remove the 'web' container if it exists
+                    if (webContainerExists == 0) {
+                        sh "docker rm -f web"
+                        echo 'Container "web" removed'
+                    } else {
+                        echo 'Container "web" does not exist'
+                    }
+                }
         stage('Build') {
             steps {
                 
