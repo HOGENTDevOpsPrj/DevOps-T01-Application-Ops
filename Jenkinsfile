@@ -1,8 +1,15 @@
 pipeline {
     agent any
-
-
+	
     stages {
+
+	stage('Remove Containers') {
+            steps {
+                echo 'Remove Containers'
+                sh "docker rm -f db"
+		sh "docker rm -f web"
+            }
+        }
         stage('Build') {
             steps {
                 
