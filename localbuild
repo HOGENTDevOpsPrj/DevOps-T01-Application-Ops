@@ -2,6 +2,7 @@
 
 echo 'Remove Containers'
 if [ -n "$(docker ps -f "name=db" -f "status=running" -q )" ] -a [ -n "$(docker ps -f "name=web" -f "status=running" -q )" ] ; then
+    echo "the container is running!"
     docker rm -f db
     docker rm -f web
 fi
