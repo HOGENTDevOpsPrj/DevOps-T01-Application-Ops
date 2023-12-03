@@ -9,7 +9,7 @@
 	
 
                 echo "Testing.."
-                sh "dotnet restore src/Server/Server.csproj"
+                sh "dotnet restore /gitrepo/src/Server/Server.csproj"
 
                 echo 'Docker container down'
                 sh "docker compose down"
