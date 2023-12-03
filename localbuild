@@ -1,19 +1,18 @@
+#!/bin/bash
 
-                echo 'Remove Containers'
-                sh "docker rm -f db"
-		sh "docker rm -f web"
+echo 'Remove Containers'
+sh "docker rm -f db"
+sh "docker rm -f web"
 
 
-                echo "Building.."
-                sh "docker compose build"
+echo "Building.."
+sh "docker compose build"
 	
+echo "Testing.."
+sh "dotnet restore /gitrepo/src/Server/Server.csproj"
 
-                echo "Testing.."
-                sh "dotnet restore /gitrepo/src/Server/Server.csproj"
+echo 'Docker container down'
+sh "docker compose down"
 
-                echo 'Docker container down'
-                sh "docker compose down"
-
-
-                echo 'Docker container up'
-                sh "docker compose up -d"
+echo 'Docker container up'
+sh "docker compose up -d"
