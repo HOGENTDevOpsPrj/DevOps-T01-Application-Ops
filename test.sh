@@ -11,12 +11,9 @@ fi
 if [ -n "$(docker ps -f "name=web" -f "status=running" -q )" ] ; then docker rm -f web
 fi
 
-if [ "$current_directory" != "$expected_directory" ]; then
-  echo 'Go to the GIT directory'
-  cd /gitrepo 
-  $SHELL
+
   
-fi
+
 echo "Building.."
 docker compose build
 	
