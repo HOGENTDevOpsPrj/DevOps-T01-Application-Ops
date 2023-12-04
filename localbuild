@@ -18,3 +18,5 @@ docker compose down
 
 echo 'Docker container up'
 docker compose up -d
+
+exit
