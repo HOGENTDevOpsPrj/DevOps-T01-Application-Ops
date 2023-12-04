@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -r -f /gitrepo
+
 expected_directory="/gitrepo"
 
 current_directory="$(pwd)"
