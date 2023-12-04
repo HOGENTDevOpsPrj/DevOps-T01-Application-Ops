@@ -1,15 +1,7 @@
 #!/bin/bash
 
-expected_directory="/gitrepo"
-
-current_directory="$(pwd)"
-
-if [ "$current_directory" != "$expected_directory" ]; then
-  echo 'Go to the GIT directory'
-  cd /gitrepo 
-  $SHELL
-  
-fi
+cd /gitrepo 
+$SHELL
 
 if [ -n "$(docker ps -f "name=db" -f "status=running" -q )" ] ; then docker rm -f db
 fi
@@ -28,5 +20,8 @@ docker compose down
 
 echo 'Docker container up'
 docker compose up -d
+
+cd $OLDPWD
+$SHELL
 
 exit
