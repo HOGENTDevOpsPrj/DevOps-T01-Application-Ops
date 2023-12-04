@@ -4,11 +4,11 @@
 
 if [ -n "$(docker ps -f "name=db" -f "status=running" -q )" ] ; then docker rm -f db
 fi
-sleep 5
+sleep 15
 
 if [ -n "$(docker ps -f "name=web" -f "status=running" -q )" ] ; then docker rm -f web
 fi
-sleep 5
+sleep 15
 
 echo "Building.."
 docker compose --file /gitrepo/docker-compose.yml build
