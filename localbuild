@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo 'Go to the GIT directory'
-cd "/gitrepo" || exit 1
+##echo 'Go to the GIT directory'
+##cd "/gitrepo" || exit 1
 
 echo 'Remove Containers'
 if [ -n "$(docker ps -f "name=db" -f "status=running" -q )" ] ; then docker rm -f db
