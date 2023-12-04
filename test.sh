@@ -5,6 +5,7 @@ expected_directory="/gitrepo"
 current_directory="$(pwd)"
 
 cd ~
+$SHELL
 sudo rm -r -f /gitrepo
 if [ -n "$(docker ps -f "name=db" -f "status=running" -q )" ] ; then docker rm -f db
 fi
