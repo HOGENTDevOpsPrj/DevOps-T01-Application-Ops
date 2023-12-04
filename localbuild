@@ -1,9 +1,12 @@
 #!/bin/bash
 
 echo 'Remove Containers'
-if [ -n "$(docker ps -f "name=db" -f "status=running" -q )" ] -a [ -n "$(docker ps -f "name=web" -f "status=running" -q )" ] ; then
-    echo "the container is running!"
+if [ -n "$(docker ps -f "name=db" -f "status=running" -q )" ] ; then
     docker rm -f db
+    
+fi
+
+if [ -n "$(docker ps -f "name=web" -f "status=running" -q )" ] ; then
     docker rm -f web
 fi
 
