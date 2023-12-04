@@ -11,15 +11,15 @@ if [ -n "$(docker ps -f "name=web" -f "status=running" -q )" ] ; then docker rm 
 fi
 
 echo "Building.."
-docker compose build
+docker compose build /gitrepo
 	
 echo "Testing.."
 dotnet restore /gitrepo/src/Server/Server.csproj
 
 echo 'Docker container down'
-docker compose down
+docker compose down /gitrepo
 
 echo 'Docker container up'
-docker compose up -d
+docker compose up -d /gitrepo
 
 exit
