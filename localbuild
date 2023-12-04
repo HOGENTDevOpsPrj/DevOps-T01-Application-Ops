@@ -11,7 +11,7 @@ fi
 sleep 15
 
 echo "Building.."
-docker compose --file /gitrepo/docker-compose.yml build
+docker compose --file /gitrepo/docker-compose.yml
 	
 echo "Testing.."
 dotnet restore /gitrepo/src/Server/Server.csproj
