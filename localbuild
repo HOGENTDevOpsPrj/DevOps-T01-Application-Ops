@@ -8,7 +8,6 @@ sleep 5
 
 if [ -n "$(docker ps -f "name=web" -f "status=running" -q )" ] ; then docker rm -f web
 fi
-
 sleep 5
 
 echo "Building.."
