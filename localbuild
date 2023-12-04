@@ -11,7 +11,7 @@ fi
 sleep 5
 
 echo "Building.."
-docker compose --file /gitrepo/docker-compose.yml
+docker compose build
 #docker-compose -f /gitrepo/docker-compose.yml build
 	
 echo "Testing.."
