@@ -11,7 +11,7 @@ fi
 
 if [ -n "$(docker ps -f "name=web" -f "status=running" -q )" ] ; then docker rm -f web
 fi
-
+git clone https://github.com/HOGENTDevOpsPrj/DevOps-T01-Application.git /gitrepo
 if [ "$current_directory" != "$expected_directory" ]; then
   echo 'Go to the GIT directory'
   cd /gitrepo 
