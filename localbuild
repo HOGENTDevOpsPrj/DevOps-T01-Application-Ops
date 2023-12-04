@@ -1,10 +1,13 @@
 #!/bin/bash
 
 echo 'Remove Containers'
-if [ -n "$(docker ps -f "name=db" -f "status=running" -q )" ] ; then docker rm -f db
-fi
 
-if [ -n "$(docker ps -f "name=web" -f "status=running" -q )" ] ; then docker rm -f web
+# Specify the name of your Docker container
+container_name="db"
+ 
+# Check if the container exists
+if docker ps -a --format '{{.Names}}' | grep -q "$container_name"; then
+    echo "Container $container_name exists."
 fi
 
 echo "Building.."
