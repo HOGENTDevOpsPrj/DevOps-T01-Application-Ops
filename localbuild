@@ -1,7 +1,6 @@
 #!/bin/bash
 
 cd /gitrepo 
-$SHELL
 
 if [ -n "$(docker ps -f "name=db" -f "status=running" -q )" ] ; then docker rm -f db
 fi
@@ -24,5 +23,7 @@ docker compose down
 echo 'Docker container up'
 docker compose up -d
 chmod +x test.sh
+
+cd -
 
 exit
