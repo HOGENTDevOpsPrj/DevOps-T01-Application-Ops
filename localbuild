@@ -20,7 +20,7 @@ echo "Building.."
 docker compose build
 	
 echo "Testing.."
-dotnet restore /gitrepo/src/Server/Server.csproj
+dotnet restore /src/Server/Server.csproj
 
 echo 'Docker container down'
 docker compose down
