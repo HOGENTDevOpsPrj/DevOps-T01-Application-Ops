@@ -29,4 +29,6 @@ chmod +x test.sh
 
 cd -
 
+mkdir -p /tmp/vagrant-ansible/inventory
+
 exit
