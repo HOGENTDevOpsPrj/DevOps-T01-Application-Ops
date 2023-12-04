@@ -4,8 +4,12 @@ echo 'Go to the GIT directory'
 cd /gitrepo 
 $SHELL
 echo 'Remove Containers'
-docker stop $(docker ps -a -q)
-docker rm $(docker ps -a -q)
+
+if [ -n "$(docker ps -f "name=db" -f "status=running" -q )" ] ; then docker rm -f db
+fi
+
+if [ -n "$(docker ps -f "name=web" -f "status=running" -q )" ] ; then docker rm -f web
+fi
 
 echo "Building.."
 docker compose build
