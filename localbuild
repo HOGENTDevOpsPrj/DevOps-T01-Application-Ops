@@ -8,6 +8,7 @@ if [ "$current_directory" != "$expected_directory" ]; then
   echo 'Go to the GIT directory'
   cd /gitrepo 
   $SHELL
+  return
 fi
 
 if [ -n "$(docker ps -f "name=db" -f "status=running" -q )" ] ; then docker rm -f db
