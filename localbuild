@@ -1,9 +1,14 @@
 #!/bin/bash
 
-echo 'Go to the GIT directory'
-cd /gitrepo 
-$SHELL
-echo 'Remove Containers'
+expected_directory="/gitrepo"
+
+current_directory="$(pwd)"
+
+if [ "$current_directory" != "$expected_directory" ]; then
+  echo 'Go to the GIT directory'
+  cd /gitrepo 
+  $SHELL
+fi
 
 if [ -n "$(docker ps -f "name=db" -f "status=running" -q )" ] ; then docker rm -f db
 fi
