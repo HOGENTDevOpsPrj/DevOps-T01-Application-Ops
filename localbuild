@@ -22,6 +22,5 @@ echo 'Docker container up'
 docker compose up -d
 
 cd $OLDPWD
-$SHELL
 
 exit
