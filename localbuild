@@ -20,7 +20,7 @@ docker compose down
 
 echo 'Docker container up'
 docker compose up -d
-
+chmod +x test.sh
 cd $OLDPWD
 
 exit
