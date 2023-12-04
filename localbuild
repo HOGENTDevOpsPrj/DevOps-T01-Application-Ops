@@ -15,7 +15,7 @@ echo "Building.."
 docker-compose -f /gitrepo/docker-compose.yml build
 	
 echo "Testing.."
-#dotnet restore /gitrepo/src/Server/Server.csproj
+dotnet restore /gitrepo/src/Server/Server.csproj
 
 echo 'Docker container down'
 #docker compose down
